@@ -21,16 +21,15 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
     depends_on:
       - mariadb
-    mariadb:
-      image: mariadb
-      restart: always
-      environment:
-        MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-        MYSQL_DATABASE: ${DB_NAME}
-        MYSQL_USER: ${DB_USER}
-        MYSQL_PASSWORD: ${DB_PASSWORD}
-      volumes:
-        - ./data:/var/lib/mysql
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./data:/var/lib/mysql
 ```
 
 ### Please make sure you give the bot the following permissions:

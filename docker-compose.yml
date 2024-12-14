@@ -1,0 +1,21 @@
+services:
+  bybot:
+    image: bybresh/bybot
+    restart: always
+    environment:
+      BOT_TOKEN: YOUR_BOT_TOKEN
+      DB_URL: mariadb:3306
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - mariadb
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./data:/var/lib/mysql
