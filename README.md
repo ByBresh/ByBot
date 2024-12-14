@@ -15,7 +15,7 @@ services:
     restart: always
     environment:
       BOT_TOKEN: YOUR_BOT_TOKEN
-      DB_URL: mariadb
+      DB_URL: mariadb:3306
       DB_NAME: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
@@ -29,6 +29,8 @@ services:
         MYSQL_DATABASE: ${DB_NAME}
         MYSQL_USER: ${DB_USER}
         MYSQL_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - ./data:/var/lib/mysql
 ```
 
 ### Please make sure you give the bot the following permissions:
